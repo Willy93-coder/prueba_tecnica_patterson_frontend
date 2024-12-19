@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { Nav } from "@/components/nav/nav";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -26,9 +27,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased grid justify-items-center grid-rows-[auto_1fr] min-h-screen`}
       >
-        {children}
+        <header className="flex justify-center w-full">
+          <Nav />
+        </header>
+        <main className="grid justify-items-center w-full max-w-7xl mb-12">
+          {children}
+        </main>
       </body>
     </html>
   );
